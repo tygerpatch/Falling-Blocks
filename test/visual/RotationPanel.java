@@ -1,45 +1,42 @@
-package test.visual;
+package visual;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
-public class RotationPanel extends ShapesPanel implements KeyListener 
-{
-	public RotationPanel() 
-	{
-		super();
+public class RotationPanel extends ShapesPanel implements KeyListener {
+   public RotationPanel() {
+      super();
 
-		setFocusable(true);
-		addKeyListener(this);
-	}
+      setFocusable(true);
+      addKeyListener(this);
+   }
 
-	public void keyPressed(KeyEvent e) 
-	{
-		if (e.getKeyCode() == KeyEvent.VK_UP) 
-		{
-			graphics.clearRect(0, 0, label.getWidth(), label.getHeight());
-			
-			shape.rotate();			
-			shape.paint(graphics);
+   public void keyPressed(KeyEvent e) {
+      if (e.getKeyCode() == KeyEvent.VK_UP) {
+         graphics.clearRect(0, 0, label.getWidth(), label.getHeight());
 
-			label.repaint();
-		}
-	}
+         shape.rotate();
+         shape.paint(graphics);
 
-	public void keyReleased(KeyEvent e) { }
+         label.repaint();
+      }
+   }
 
-	public void keyTyped(KeyEvent e) { }
+   public void keyReleased(KeyEvent e) {
+   }
 
-	public static void main(String[] args) 
-	{
-		JFrame frame = new JFrame();
+   public void keyTyped(KeyEvent e) {
+   }
 
-		frame.setTitle("~ RotationPanel ~");
-		frame.setSize(300, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setContentPane(new RotationPanel());
-		frame.setVisible(true);
-	}
+   public static void main(String[] args) {
+      JFrame frame = new JFrame();
+
+      frame.setTitle("~ RotationPanel ~");
+      frame.setSize(300, 300);
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.setContentPane(new RotationPanel());
+      frame.setVisible(true);
+   }
 }
